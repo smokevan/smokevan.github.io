@@ -71,7 +71,9 @@ const TinyRiscV2 = () => (
 );
 
 const Documentation: React.FC<Props> = ({ projectId }) => {
-  const id = projectId || (typeof window !== 'undefined' ? window.location.pathname.split('/').pop() : 'c2s2');
+  const hashId = typeof window !== 'undefined' ? (window.location.hash || '').replace(/^#\/?/, '') : '';
+  const inferred = hashId.startsWith('docs/') ? hashId.split('/')[1] : '';
+  const id = projectId || inferred || 'c2s2';
   if (!id) return <div className="docs">No project selected</div>;
 
   switch (id.toLowerCase()) {

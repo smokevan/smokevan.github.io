@@ -7,8 +7,8 @@ import {
     Navigation,
     Footer,
 } from "./components";
-import Documentation from './components/Documentation';
 import FadeIn from './components/FadeIn';
+import Documentation from './components/Documentation';
 import './index.scss';
 
 function App() {
@@ -39,7 +39,8 @@ function App() {
                 <FadeIn transitionDuration={700}>
                         {hash.startsWith('#/docs/') ? (
                             (() => {
-                                const parts = hash.replace(/^#\/?/, '').split('/');
+                                const clean = (window.location.hash || '').replace(/^#\/?/, '');
+                                const parts = clean.split('/');
                                 const id = parts.length > 1 ? parts[1] : parts[0];
                                 return <Documentation projectId={id} />;
                             })()
