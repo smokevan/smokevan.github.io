@@ -2,7 +2,7 @@ import React from 'react';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import '../assets/styles/Main.scss';
-import avatar from '../assets/images/screenshot.png';
+import avatar from '../assets/images/mock01.png';
 // project thumbnails are rendered inside Project component
 
 const Main: React.FC = () => {
@@ -30,15 +30,6 @@ const Main: React.FC = () => {
       </div>
 
   {/* Expertise and Project are rendered at App level to avoid duplication */}
-
-      <div id="contact">
-        <div className="items-container">
-          <div className="contact_wrapper">
-            <h1>Contact:</h1>
-            <p>think im useful? shoot me an email at ivansmokeyev@gmail.com</p>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }

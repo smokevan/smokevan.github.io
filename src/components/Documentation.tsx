@@ -9,29 +9,35 @@ type Props = {
 };
 
 const C2S2 = () => (
-  <div className="docs">
-    <h2>c2s2 — Component / System notes</h2>
-    <p>This project documents the component-to-system integration. Add your notes and diagrams below.</p>
-    <ul>
-      <li>Design: simple, componentized UI</li>
-      <li>Data flow: event-driven</li>
-    </ul>
-    <img src={mock09} alt="c2s2 mock" className="diagram" />
+  <div className="docs-page-wrapper">
+    <div className="doc-container docs">
+      <a className="back-link" href="#/">← Back</a>
+      <h2>c2s2 — Component / System notes</h2>
+      <p>This project documents the component-to-system integration. Add your notes and diagrams below.</p>
+      <ul>
+        <li>Design: simple, componentized UI</li>
+        <li>Data flow: event-driven</li>
+      </ul>
+      <img src={mock09} alt="c2s2 mock" className="diagram" />
+    </div>
   </div>
 );
 
 const TRV2Processor = () => (
-  <div className="docs">
-    <h2>TRV2_processor — Processing pipeline</h2>
-    <p>Overview of the TRV2_processor pipeline and transform steps.</p>
-    <ol>
-      <li>Load input</li>
-      <li>Normalize</li>
-      <li>Run processor</li>
-    </ol>
-    <img src={mock10} alt="TRV2 mock" className="diagram" />
-    <p>Example iteration diagram:</p>
-    <img src={iter_mul} alt="iteration diagram" className="diagram" />
+  <div className="docs-page-wrapper">
+    <div className="doc-container docs">
+      <a className="back-link" href="#/">← Back</a>
+      <h2>TRV2_processor — Processing pipeline</h2>
+      <p>Overview of the TRV2_processor pipeline and transform steps.</p>
+      <ol>
+        <li>Load input</li>
+        <li>Normalize</li>
+        <li>Run processor</li>
+      </ol>
+      <img src={mock10} alt="TRV2 mock" className="diagram" />
+      <p>Example iteration diagram:</p>
+      <img src={iter_mul} alt="iteration diagram" className="diagram" />
+    </div>
   </div>
 );
 

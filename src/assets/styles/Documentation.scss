@@ -20,6 +20,10 @@
 .doc-container {
   max-width: 980px;
   margin: 24px auto;
+  /* ensure docs sit below fixed navigation */
+  padding-top: 88px; /* nav toolbar ~64px + some breathing room */
+  min-height: calc(100vh - 120px);
+  box-sizing: border-box;
 }
 
 .doc-hero {
@@ -31,9 +35,12 @@
 }
 
 .doc-content {
-  background: rgba(12,14,18,0.6);
+  background: rgba(12,14,18,0.9);
   padding: 20px 24px;
   border-radius: 8px;
+  /* constrain width to approx 2/3 of project column */
+  max-width: 64%;
+  margin: 0 auto 32px auto;
 }
 
 .back-link {
@@ -41,6 +48,12 @@
   text-decoration: none;
   display: inline-block;
   margin-bottom: 8px;
+}
+
+/* ensure page background is dark so no white shows through */
+.docs-page-wrapper {
+  background: linear-gradient(180deg, #0d1116 0%, #0b0f13 100%);
+  padding-bottom: 48px;
 }
 
 h1, h2, h3 {
