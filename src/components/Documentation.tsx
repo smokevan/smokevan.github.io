@@ -2,7 +2,7 @@ import React from 'react';
 import '../assets/styles/Documentation.scss';
 import mock09 from '../assets/images/mock09.png';
 import mock10 from '../assets/images/mock10.png';
-import iter_mul from '../assets/images/iter_mul.png';
+import iter_mul from '../assets/images/mock08.png';
 
 type Props = {
   projectId?: string;
