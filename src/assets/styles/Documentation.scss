@@ -1,0 +1,16 @@
+.docs {
+  padding: 16px;
+}
+
+.docs ul, .docs ol {
+  color: inherit; /* ensure bullets match surrounding text */
+  margin-left: 1.25rem;
+}
+
+.diagram {
+  display: block;
+  max-width: 720px;
+  width: 100%;
+  height: auto;
+  margin: 12px 0;
+}
