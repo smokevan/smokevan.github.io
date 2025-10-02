@@ -4,8 +4,6 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import '../assets/styles/Main.scss';
 import avatar from '../assets/images/screenshot.png';
 // project thumbnails are rendered inside Project component
-import Expertise from './Expertise';
-import Project from './Project';
 
 const Main: React.FC = () => {
   return (
@@ -31,9 +29,7 @@ const Main: React.FC = () => {
         </div>
       </div>
 
-      <Expertise />
-
-      <Project />
+  {/* Expertise and Project are rendered at App level to avoid duplication */}
 
       <div id="contact">
         <div className="items-container">

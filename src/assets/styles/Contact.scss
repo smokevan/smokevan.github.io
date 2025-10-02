@@ -46,3 +46,15 @@ form {
   width: 100% !important;
   margin-bottom: 15px !important;
 }
+
+.left-justify {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.left-justify .contact_wrapper {
+  max-width: 720px;
+  padding-right: 0;
+}
