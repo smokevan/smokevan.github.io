@@ -1,85 +1,47 @@
 import React from "react";
-import '@fortawesome/free-regular-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faReact, faDocker, faPython } from '@fortawesome/free-brands-svg-icons';
+/* FontAwesome icons removed — expertise now uses MUI Chips */
 import Chip from '@mui/material/Chip';
 import '../assets/styles/Expertise.scss';
-
-const labelsFirst = [
-    "React",
-    "TypeScript",
-    "JavaScript",
-    "HTML5",
-    "CSS3",
-    "SASS",
-    "Flask",
-    "Python",
-    "SQL",
-    "PostgreSQL",
-    "Postman"
-];
-
-const labelsSecond = [
-    "Git",
-    "GitHub Actions",
-    "Docker",
-    "AWS",
-    "Azure",
-    "Linux",
-    "Snowflake",
-    "Pandas",
-    "Selenium",
-];
-
-const labelsThird = [
-    "OpenAI",
-    "Groq",
-    "LangChain",
-    "Qdrant",
-    "Hugging Face",
-    "LlamaIndex",
-    "Streamlit",
-];
 
 function Expertise() {
     return (
     <div className="container" id="expertise">
         <div className="skills-container">
-            <h1>Expertise</h1>
+            <h1>what i do:</h1>
             <div className="skills-grid">
                 <div className="skill">
-                    <FontAwesomeIcon icon={faReact} size="3x"/>
-                    <h3>Full Stack Web Development</h3>
-                    <p>I have built a diverse array of web applications from scratch using modern technologies such as React and Flask. I have a strong proficiency in the SDLC process and frontend + backend development.</p>
-                    <div className="flex-chips">
-                        <span className="chip-title">Tech stack:</span>
-                        {labelsFirst.map((label, index) => (
-                            <Chip key={index} className='chip' label={label} />
-                        ))}
+                    <h3>Hardware Design</h3>
+                    <p>Designing a diverse array of hardware designs from scratch, from RISC-V cores to asynchronous buffers, to custom acceleration modules.</p>
+                    <div className="flex-chips"><span className="chip-title">using:</span>
+                        <Chip className='chip' label="Verilog" />
+                        <Chip className='chip' label="SystemVerilog" />
+                        <Chip className='chip' label="Python" />
+                        <Chip className='chip' label="C" />
+                        <Chip className='chip' label="C++" />
                     </div>
                 </div>
 
                 <div className="skill">
-                    <FontAwesomeIcon icon={faDocker} size="3x"/>
-                    <h3>DevOps & Automation</h3>
-                    <p>Once the application is built, I help clients set up DevOps testing, CI/CD pipelines, and deployment automation to support the successful Go-Live.</p>
-                    <div className="flex-chips">
-                        <span className="chip-title">Tech stack:</span>
-                        {labelsSecond.map((label, index) => (
-                            <Chip key={index} className='chip' label={label} />
-                        ))}
+                    <h3>Verification and Testing</h3>
+                    <p>Setting up verification and testing suites through both four-state, gate-level, and back-annotated methods using open and closed source tools.</p>
+                    <div className="flex-chips"><span className="chip-title">using:</span>
+                        <Chip className='chip' label="Git" />
+                        <Chip className='chip' label="CoCoTB" />
+                        <Chip className='chip' label="PyMTL3" />
+                        <Chip className='chip' label="Synopsys VCS" />
+                        <Chip className='chip' label="Verilator" />
                     </div>
                 </div>
 
                 <div className="skill">
-                    <FontAwesomeIcon icon={faPython} size="3x"/>
-                    <h3>GenAI & LLM</h3>
-                    <p>Stay relevant in the market by leveraging the latest AI models in your projects. I have professional experience building enterprise grade GenAI-enabled solutions to empower intelligent decision making.</p>
-                    <div className="flex-chips">
-                        <span className="chip-title">Tech stack:</span>
-                        {labelsThird.map((label, index) => (
-                            <Chip key={index} className='chip' label={label} />
-                        ))}
+                    <h3>Design Implementation</h3>
+                    <p>Getting designs on silicon and FPGAs using industry tools, working on multiple tapeouts as an undergraduate, and doing so efficiently with automation and multi-processing techniques</p>
+                    <div className="flex-chips"><span className="chip-title">using:</span>
+                        <Chip className='chip' label="Synopsys DC & DV" />
+                        <Chip className='chip' label="Cadence Innovus" />
+                        <Chip className='chip' label="Siemens Calibre" />
+                        <Chip className='chip' label="TSMC PDKs" />
+                        <Chip className='chip' label="Quartus" />
                     </div>
                 </div>
             </div>
