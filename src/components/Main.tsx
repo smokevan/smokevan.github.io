@@ -2,7 +2,7 @@ import React from 'react';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import '../assets/styles/Main.scss';
-import avatar from '../assets/images/mock01.png';
+import avatar from '../assets/images/profile.png';
 // project thumbnails are rendered inside Project component
 
 const Main: React.FC = () => {
