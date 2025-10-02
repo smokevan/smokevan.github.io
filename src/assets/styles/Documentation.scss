@@ -26,31 +26,70 @@
   box-sizing: border-box;
 }
 
-.doc-hero {
-  width: 100%;
-  border-radius: 8px;
-  display: block;
-  box-shadow: 0 8px 24px rgba(2,6,23,0.6);
-  margin: 16px 0 24px;
+.doc-container {
+  padding-top: 88px; /* offset for fixed nav */
+  min-height: calc(100vh - 120px);
 }
 
+.docs-page-wrapper {
+  background: linear-gradient(180deg, rgba(15,15,15,1) 0%, rgba(18,18,18,1) 100%);
+  padding-bottom: 80px;
+}
+
+/* Widen the content column for documentation pages */
 .doc-content {
-  background: rgba(12,14,18,0.9);
-  padding: 20px 24px;
-  border-radius: 8px;
-  /* constrain width to approx 2/3 of project column */
-  max-width: 64%;
+  /* Use 80% width with a sensible pixel cap to keep lines readable */
+  max-width: min(80%, 1100px);
   margin: 0 auto 32px auto;
+  line-height: 1.6;
+  color: #ddd;
 }
 
-.back-link {
-  color: #bcd1ff;
-  text-decoration: none;
-  display: inline-block;
-  margin-bottom: 8px;
+/* Ensure hero/diagram images never exceed the content column */
+.doc-hero,
+.diagram {
+  /* Keep hero and diagram images responsive and constrained to their container */
+  /* Cap heroes/diagrams to the readable column width */
+  max-width: min(100%, 900px);
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 12px auto 24px auto;
+}
+.doc-hero {
+  /* Ensure the hero image follows the same column constraints as text */
+  max-width: min(80%, 1100px);
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 12px auto 24px auto;
 }
 
-/* ensure page background is dark so no white shows through */
+.diagram {
+  /* Diagrams remain capped to the readable cap (900px) */
+  max-width: min(100%, 900px);
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 12px auto 24px auto;
+}
+
+/* Ensure any images inside the textual doc-content are capped to the content width and centered */
+.doc-content img {
+  /* Constrain images to the content column but never exceed 900px for readability */
+  max-width: min(100%, 900px);
+  width: auto;
+  display: block;
+  margin: 12px auto 24px auto;
+}
+
+/* Small screens: make docs full-width with padding */
+@media (max-width: 800px) {
+  .doc-content {
+    padding: 0 18px;
+    max-width: 100%;
+  }
+}
 .docs-page-wrapper {
   background: linear-gradient(180deg, #0d1116 0%, #0b0f13 100%);
   padding-bottom: 48px;
