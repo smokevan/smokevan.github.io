@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.80b2cd3b.css",
-    "main.js": "/static/js/main.5426c1f1.js",
-    "static/js/453.1b0d4a06.chunk.js": "/static/js/453.1b0d4a06.chunk.js",
-    "static/media/IMG_2550.png": "/static/media/IMG_2550.b95a81274b7e43f62d18.png",
-    "static/media/mock10.png": "/static/media/mock10.3ea43c25c8b319ba09ca.png",
+    "main.css": "/static/css/main.6037ffab.css",
+    "main.js": "/static/js/main.72c4ce4c.js",
+    "static/js/453.c980083f.chunk.js": "/static/js/453.c980083f.chunk.js",
+    "static/media/mock10.png": "/static/media/mock10.8dfc1eccdd48d688c015.png",
+    "static/media/profile.png": "/static/media/profile.b95a81274b7e43f62d18.png",
     "static/media/bg-light.png": "/static/media/bg-light.bac0efb485244a522981.png",
     "static/media/bg-dark.png": "/static/media/bg-dark.f420c6b8458af72de935.png",
-    "static/media/iter_mul.png": "/static/media/iter_mul.5184b39e991b0f2d3ea5.png",
-    "static/media/mock09.png": "/static/media/mock09.6a30ef9f7020b0105d6b.png",
+    "static/media/mock09.png": "/static/media/mock09.c11ae83b3bb03f8b77f1.png",
+    "static/media/mock08.png": "/static/media/mock08.7122c4b2e3fb0796e9a9.png",
     "index.html": "/index.html",
-    "main.80b2cd3b.css.map": "/static/css/main.80b2cd3b.css.map",
-    "main.5426c1f1.js.map": "/static/js/main.5426c1f1.js.map",
-    "453.1b0d4a06.chunk.js.map": "/static/js/453.1b0d4a06.chunk.js.map"
+    "main.6037ffab.css.map": "/static/css/main.6037ffab.css.map",
+    "main.72c4ce4c.js.map": "/static/js/main.72c4ce4c.js.map",
+    "453.c980083f.chunk.js.map": "/static/js/453.c980083f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.80b2cd3b.css",
-    "static/js/main.5426c1f1.js"
+    "static/css/main.6037ffab.css",
+    "static/js/main.72c4ce4c.js"
   ]
 }
