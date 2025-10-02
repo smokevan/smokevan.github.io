@@ -3,6 +3,7 @@ import '../assets/styles/Documentation.scss';
 import mock09 from '../assets/images/mock09.png';
 import mock10 from '../assets/images/mock10.png';
 import iter_mul from '../assets/images/mock08.png';
+import mock06 from '../assets/images/mock06.png';
 
 type Props = {
   projectId?: string;
@@ -54,37 +55,27 @@ const C2S2 = () => (
   </div>
 );
 
-const TRV2Processor = () => (
+const MSM_accel = () => (
   <div className="docs-page-wrapper">
     <div className="doc-container docs">
       <a className="back-link" href="#/">← Back</a>
-      <h1>TinyRiscV2 Processor</h1>
-      <img src={mock09} alt="TinyRiscV2 hero" className="doc-hero" />
+      <h1>Accelerating MSM for Cryptography</h1>
+      <img src={mock06} alt="MSM_accel hero" className="doc-hero" />
       <section className="doc-content">
         <h2>Overview</h2>
         <p>
-          This is a compact TinyRISCV2 compatible processor implementation, with five forwarded pipeline stages,
-          an iterative multiplication unit, a branch target buffer, and more.
+          This is an exaploration and implementation of a hardware accelerator for the Multi-Scalar Multiplication (MSM) operation,
+          with a focus on optimizing performance for cryptographic applications.
         </p>
         <h3>Quick links</h3>
         <ul>
           <li><a href="https://github.com/smokevan" target="_blank" rel="noreferrer">GitHub</a></li>
         </ul>
-        <h2>Design Process</h2>
+        <h2>Motivations</h2>
         <p>
-          This processor was in part designed for ECE4750, Computer Architecture, at Cornell University. Using some
-          previously verified IP, such as muxes, registers, a regfile, and a memory interface, I designed the
-          processor from the ground up in SystemVerilog. This processor uses a common 5-stage pipeline, with instruction
-          fetch, decode, execute, memory, and writeback stages. It implements full forwarding and hazard detection to stall
-          when necessary for multiplication, processor management, and memory operations.
-        </p>
-        <h3>Iterative Multiplier</h3>
-        <img src={iter_mul} alt="iterative multiplier diagram" className="diagram" />
-        <p>
-          The iterative multiplier uses a common shift-and-add algorithm to perform multiplication over multiple cycles,
-          with a variable latency system to optimize speed by shifting by several indices when many zeroes are present
-          in the multiplier or multiplicand. This is handled through a standard val/rdy streaming interface, allowing for
-          careful handling of multiplication operations in the pipeline using hazard detection and stalling.
+          So I stubmled upon an article that mentioned implementing MSM for an FPGA competition in HardCaml. Now I don't know HardCaml,
+          but I did send myself down the cryptography rabbit hole with some SystemVerilog knowledge, exploring eliptical curves, zk-SNARKs,
+          and more, and having a pretty decent understanding of how it fits together, I figured I could try to implement a hardware version myself. (Oct 2,2025)
         </p>
       </section>
     </div>
@@ -134,12 +125,9 @@ const Documentation: React.FC<Props> = ({ projectId }) => {
 
   switch (id.toLowerCase()) {
     case 'trv2_processor':
-    case 'trv2':
-      return <TRV2Processor />;
-    case 'tinyriscv2':
-    case 'tinyriscv':
-    case 'tinyrv2':
       return <TinyRiscV2 />;
+    case 'msm_accel':
+      return <MSM_accel />;
     case 'c2s2':
     default:
       return <C2S2 />;
