@@ -10,7 +10,6 @@ function Footer() {
         <a href="https://github.com/smokevan" target="_blank" rel="noreferrer"><GitHubIcon/></a>
         <a href="https://www.linkedin.com/in/ism27/" target="_blank" rel="noreferrer"><LinkedInIcon/></a>
       </div>
-      <p>portfolio built by me using a template ;)</p>
     </footer>
   );
 }

@@ -3,11 +3,9 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
-import DarkModeIcon from '@mui/icons-material/DarkMode';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import LightModeIcon from '@mui/icons-material/LightMode';
 import List from '@mui/material/List';
 import ListIcon from '@mui/icons-material/List';
 import ListItem from '@mui/material/ListItem';
@@ -17,11 +15,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 
 const drawerWidth = 240;
-const navItems = [['Expertise', 'expertise'], ['History', 'history'], ['Projects', 'projects'], ['Contact', 'contact']];
+const navItems = [ ['Home/Projects', 'projects']];
 
-function Navigation({parentToChild, modeChange}: any) {
-
-  const {mode} = parentToChild;
+function Navigation() {
 
   const [mobileOpen, setMobileOpen] = useState<boolean>(false);
   const [scrolled, setScrolled] = useState<boolean>(false);
@@ -47,14 +43,28 @@ function Navigation({parentToChild, modeChange}: any) {
   }, []);
 
   const scrollToSection = (section: string) => {
-    console.log(section)
-    const expertiseElement = document.getElementById(section);
-    if (expertiseElement) {
-      expertiseElement.scrollIntoView({ behavior: 'smooth' });
-      console.log('Scrolling to:', expertiseElement);  // Debugging: Ensure the element is found
-    } else {
-      console.error('Element with id "expertise" not found');  // Debugging: Log error if element is not found
+    const element = document.getElementById(section);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      return;
     }
+
+    // The section isn't on the current page (e.g. we're on a docs page).
+    // Navigate back to the home page, then scroll once the section renders.
+    if (window.location.hash && window.location.hash !== '#/') {
+      window.location.hash = '#/';
+    }
+
+    let attempts = 0;
+    const tryScroll = () => {
+      const target = document.getElementById(section);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      } else if (attempts++ < 20) {
+        setTimeout(tryScroll, 50);
+      }
+    };
+    setTimeout(tryScroll, 50);
   };
 
   const drawer = (
@@ -87,11 +97,6 @@ function Navigation({parentToChild, modeChange}: any) {
           >
             <MenuIcon />
           </IconButton>
-          {mode === 'dark' ? (
-            <LightModeIcon onClick={() => modeChange()}/>
-          ) : (
-            <DarkModeIcon onClick={() => modeChange()}/>
-          )}
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
               <Button key={item[0]} onClick={() => scrollToSection(item[1])} sx={{ color: '#fff' }}>

@@ -1,20 +1,11 @@
-.dark-mode .about-section {
-    background-color: rgba(0, 0, 0, 0.2);
-}
-
 .about-section {
     display: flex;
     gap: 30px;
     justify-content: flex-start;
     align-items: center;
     width: 100%;
-    padding: 0px 15%;
-    min-height: 700px;
-    background-image: url("../images/bg-dark.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
+    padding: 60px 15%;
+    box-sizing: border-box;
 }
 
 .about-section .content {

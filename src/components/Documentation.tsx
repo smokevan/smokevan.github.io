@@ -1,136 +1,44 @@
 import React from 'react';
-import '../assets/styles/Documentation.scss';
-import mock09 from '../assets/images/mock09.png';
-import mock10 from '../assets/images/mock10.png';
-import iter_mul from '../assets/images/mock08.png';
-import mock06 from '../assets/images/mock06.png';
+import C2S2 from './docs/C2S2';
+import TinyRiscV2 from './docs/TinyRiscV2';
+import QEC_Hardware from './docs/QEC_Hardware';
 
 type Props = {
   projectId?: string;
 };
 
-const C2S2 = () => (
-  <div className="docs-page-wrapper">
-    <div className="doc-container docs">
-      <a className="back-link" href="#/">← Back</a>
-      <h1>Cornell Custom Silicon Systems</h1>
-      <img src={mock10} alt="project hero" className="doc-hero" />
-      <section className="doc-content">
-        <h2>Overview</h2>
-        <p>
-          Cornell Custom Silicon Systems (C2S2) is a student-run organization at Cornell University that focuses on
-          designing and fabricating custom integrated circuits (ICs). The team provides students with hands-on
-          experience in chip design, layout, and testing, allowing them to apply their theoretical knowledge in a
-          practical setting. We collaborate with industry partners and utilize advanced fabrication processes to create
-          high-performance and energy-efficient chips for various applications, including communications, signal
-          processing, and machine learning.
-        </p>
-        <h3>Quick links</h3>
-        <ul>
-          <li><a href="https://c2s2.engineering.cornell.edu/" target="_blank" rel="noreferrer">Project Team Website</a></li>
-        </ul>
-        <h2>My Role</h2>
-        <p>
-          As a digital/physical design team member, I contributed to the backend design and physical implementation of
-          custom integrated circuits, as well as the development of automation scripts to streamline the design process
-          and occasional RTL block design. Some of the tasks, past and current, include:
-        </p>
-        <ul>
-          <li>
-            Writing scripts in .tcl, bash, and Python for a light but robust RTL → GDS flow with verification signoff
-            using FFGL and BAGL testing for Analog/Digital/RF chips with a 20 day turnaround, using Synopsys/Cadence
-            tooling, leading to successful tapeout of chips on TSMC180.
-          </li>
-          <li>
-            Using Slurm and tooling scripts to create a parallelized hierarchical flow for recipe execution and
-            management to utilize server hardware efficiently.
-          </li>
-          <li>
-            Helping with and understanding the RTL design and verification process to properly plan floorplanning and
-            placement strategies when experimenting with SRAMs and other macros.
-          </li>
-        </ul>
-      </section>
-    </div>
-  </div>
-);
+// Registry of documentation pages, keyed by the project id used in the URL
+// hash (e.g. `#/docs/c2s2`). To add a new project, create a component under
+// `./docs/` and add one entry here — no need to touch the rest of this file.
+const DOC_PAGES: Record<string, React.FC> = {
+  c2s2: C2S2,
+  trv2_processor: TinyRiscV2,
+  qec_hardware: QEC_Hardware,
+};
 
-const MSM_accel = () => (
-  <div className="docs-page-wrapper">
-    <div className="doc-container docs">
-      <a className="back-link" href="#/">← Back</a>
-      <h1>Accelerating MSM for Cryptography</h1>
-      <img src={mock06} alt="MSM_accel hero" className="doc-hero" />
-      <section className="doc-content">
-        <h2>Overview</h2>
-        <p>
-          This is an exaploration and implementation of a hardware accelerator for the Multi-Scalar Multiplication (MSM) operation,
-          with a focus on optimizing performance for cryptographic applications.
-        </p>
-        <h3>Quick links</h3>
-        <ul>
-          <li><a href="https://github.com/smokevan" target="_blank" rel="noreferrer">GitHub</a></li>
-        </ul>
-        <h2>Motivations</h2>
-        <p>
-          So I stubmled upon an article that mentioned implementing MSM for an FPGA competition in HardCaml. Now I don't know HardCaml,
-          but I did send myself down the cryptography rabbit hole with some SystemVerilog knowledge, exploring eliptical curves, zk-SNARKs,
-          and more, and having a pretty decent understanding of how it fits together, I figured I could try to implement a hardware version myself. (Oct 2,2025)
-        </p>
-      </section>
-    </div>
-  </div>
-);
-
-const TinyRiscV2 = () => (
-  <div className="doc-container docs">
-    <a className="back-link" href="#/">← Back</a>
-    <h1>TinyRiscV2 Processor</h1>
-    <img src={mock09} alt="TinyRiscV2 hero" className="doc-hero" />
-    <section className="doc-content">
-      <h2>Overview</h2>
-      <p>
-        This is a compact TinyRISCV2 compatible processor implementation, with five forwarded pipeline stages,
-        an iterative multiplication unit, a branch target buffer, and more.
-      </p>
-      <h3>Quick links</h3>
-      <ul>
-        <li><a href="https://github.com/smokevan" target="_blank" rel="noreferrer">GitHub</a></li>
-      </ul>
-      <h2>Design Process</h2>
-      <p>
-        This processor was in part designed for ECE4750, Computer Architecture, at Cornell University. Using some
-        previously verified IP, such as muxes, registers, a regfile, and a memory interface, I designed the
-        processor from the ground up in SystemVerilog. This processor uses a common 5-stage pipeline, with instruction
-        fetch, decode, execute, memory, and writeback stages. It implements full forwarding and hazard detection to stall
-        when necessary for multiplication, processor management, and memory operations.
-      </p>
-      <h3>Iterative Multiplier</h3>
-      <img src={iter_mul} alt="iterative multiplier diagram" className="diagram" />
-      <p>
-        The iterative multiplier uses a common shift-and-add algorithm to perform multiplication over multiple cycles,
-        with a variable latency system to optimize speed by shifting by several indices when many zeroes are present
-        in the multiplier or multiplicand. This is handled through a standard val/rdy streaming interface, allowing for
-        careful handling of multiplication operations in the pipeline using hazard detection and stalling.
-      </p>
-    </section>
-  </div>
-);
+const DEFAULT_DOC = 'c2s2';
 
 const Documentation: React.FC<Props> = ({ projectId }) => {
-  const hashId = typeof window !== 'undefined' ? (window.location.hash || '').replace(/^#\/?/, '') : '';
-  const inferred = hashId.startsWith('docs/') ? hashId.split('/')[1] : '';
-  const id = projectId || inferred || 'c2s2';
-  if (!id) return <div className="docs">No project selected</div>;
+  // Defensive rendering: wrap in try/catch so a runtime error inside docs
+  // doesn't unmount the whole app during development. Errors are logged
+  // to the console for debugging and a friendly message is shown.
+  try {
+    const hashId = typeof window !== 'undefined' ? (window.location.hash || '').replace(/^#\/?/, '') : '';
+    const inferred = hashId.startsWith('docs/') ? hashId.split('/')[1] : '';
+    const id = (projectId || inferred || DEFAULT_DOC).toLowerCase();
 
-  switch (id.toLowerCase()) {
-    case 'trv2_processor':
-      return <TinyRiscV2 />;
-    case 'msm_accel':
-      return <MSM_accel />;
-    case 'c2s2':
-    default:
-      return <C2S2 />;
+    const Page = DOC_PAGES[id] || DOC_PAGES[DEFAULT_DOC];
+    return <Page />;
+  } catch (err: any) {
+    // eslint-disable-next-line no-console
+    console.error('Documentation render error:', err);
+    return (
+      <div className="docs">
+        <h2>Documentation failed to load</h2>
+        <p>There was an error rendering this documentation page. Check the browser console for details.</p>
+        <pre style={{ whiteSpace: 'pre-wrap', color: '#f88' }}>{String(err && err.stack ? err.stack : err)}</pre>
+      </div>
+    );
   }
 };
 

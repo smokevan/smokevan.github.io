@@ -7,22 +7,22 @@ import '../assets/styles/Project.scss';
 function Project() {
     return(
     <div className="projects-container" id="projects">
-        <h1>some projects:</h1>
+        <h1>Projects and other work:</h1>
         <div className="projects-grid">
             <div className="project">
                 <a href="#/docs/c2s2"><img src={mock10} className="zoom" alt="thumbnail"/></a>
                 <a href="#/docs/c2s2"><h2>Cornell Custom Sillicon Systems</h2></a>
-                <p>Taping out chips as an undergraduate, working on writing RTL and physical design tooling scripts for efficient, customizable flows.</p>
+                <p>Taping out chips as an undergraduate, working on physical design tooling for efficient, customizable flows.</p>
             </div>
             <div className="project">
                 <a href="#/docs/TRV2_processor"><img src={mock09} className="zoom" alt="thumbnail"/></a>
-                <a href="#/docs/TRV2_processor"><h2>TinyRiscV2 Processor</h2></a>
-                <p>Designed pipelined microprocessor with forwarding and in SVerilog from scratch, including 32-bit ALU with a variable cycle iterative algorithm for multiplication, streaming memory interface, and TinyRISCV2 instruction set compatibility. Working on multi-core.</p>
+                <a href="#/docs/TRV2_processor"><h2>Multi-core TinyRiscV2 Processor System</h2></a>
+                <p>Designed multi-core system with pipelined TRV2 processor in SVerilog from scratch, with a 1-cycle read/write hit cache, NoC with round robin arbitration and least distance routing, branch prediction, and more.</p>
             </div>
             <div className="project">
-                <a href="#/docs/MSM_accel"><img src={mock06} className="zoom" alt="thumbnail"/></a>
-                <a href="#/docs/MSM_accel"><h2>Accelerating MSM for Cryptography</h2></a>
-                <p>Designed hardware accelerators for cryptographic algorithms, focusing on optimizing the performance of the Multi-Scalar Multiplication (MSM) operation.</p>
+                <a href="#/docs/QEC_hardware"><img src={mock06} className="zoom" alt="thumbnail"/></a>
+                <a href="#/docs/QEC_hardware"><h2>Quantum Error Correction Hardware</h2></a>
+                <p>Designing FPGA accelerated hardware and software systems to support the decoding of Quantum Error Correction codes, beginning with the surface code and moving towards more novel hardware decoding.</p>
             </div>
         </div>
     </div>

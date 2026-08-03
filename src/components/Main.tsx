@@ -20,7 +20,7 @@ const Main: React.FC = () => {
             <a href="https://www.linkedin.com/in/ism27/" target="_blank" rel="noreferrer"><LinkedInIcon/></a>
           </div>
           <h1>Iván Mokeyev</h1>
-          <p>engineer, among other things</p>
+          <p>last updated - August 03, 2026</p>
 
           <div className="mobile_social_icons">
             <a href="https://github.com/smokevan" target="_blank" rel="noreferrer"><GitHubIcon/></a>

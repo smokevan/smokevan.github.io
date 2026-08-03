@@ -54,7 +54,7 @@ function Contact() {
       <div className="items-container">
         <div className="contact_wrapper">
           <h1>Contact Me</h1>
-          <p>think im useful? shoot me an email at ivansmokeyev@gmail.com</p>
+          <p>talk to me if you want to by emailing me at ivansmokeyev@gmail.com - always open to conversations</p>
         </div>
       </div>
     </div>

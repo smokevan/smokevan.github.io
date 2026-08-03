@@ -8,6 +8,15 @@
         color: white;
     }
 }
+
+/* Title dividing line under the section heading */
+.skills-container h1 {
+    margin: 0 0 18px 0;
+    padding-bottom: 8px;
+    font-size: 2rem;
+    /* thin divider spanning the content width */
+    border-bottom: 5px solid rgba(255, 255, 255, 0.08);
+}
   
 .skills-container .skills-grid {
     display: grid;
