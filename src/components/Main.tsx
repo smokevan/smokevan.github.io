@@ -7,7 +7,7 @@ import avatar from '../assets/images/profile.png';
 
 const Main: React.FC = () => {
   return (
-    <div className="container">
+    <div className="container" id="home">
       <div className="about-section">
         <div className="image-wrapper">
           <a href="https://github.com/smokevan" target="_blank" rel="noreferrer">
@@ -20,7 +20,7 @@ const Main: React.FC = () => {
             <a href="https://www.linkedin.com/in/ism27/" target="_blank" rel="noreferrer"><LinkedInIcon/></a>
           </div>
           <h1>Iván Mokeyev</h1>
-          <p>last updated - August 03, 2026</p>
+          <p>last updated - August 06, 2026</p>
 
           <div className="mobile_social_icons">
             <a href="https://github.com/smokevan" target="_blank" rel="noreferrer"><GitHubIcon/></a>

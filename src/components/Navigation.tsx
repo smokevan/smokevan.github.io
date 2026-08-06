@@ -15,12 +15,13 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 
 const drawerWidth = 240;
-const navItems = [ ['Home/Projects', 'projects']];
+const navItems = [ ['Home', 'home'], ['Experiences', 'experiences'], ['Projects', 'projects']];
 
 function Navigation() {
 
   const [mobileOpen, setMobileOpen] = useState<boolean>(false);
   const [scrolled, setScrolled] = useState<boolean>(false);
+  const [activeSection, setActiveSection] = useState<string>('home');
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -33,9 +34,24 @@ function Navigation() {
         const scrolled = window.scrollY > navbar.clientHeight;
         setScrolled(scrolled);
       }
+
+      // Scroll-spy: highlight the nav item for the section currently in view.
+      // A section is "active" once its top has scrolled up past the navbar.
+      const threshold = (navbar ? navbar.clientHeight : 64) + 40;
+      let current = '';
+      for (const [, id] of navItems) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= threshold) {
+          current = id;
+        }
+      }
+      if (current) {
+        setActiveSection(current);
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // set the initial active section on mount
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -99,7 +115,15 @@ function Navigation() {
           </IconButton>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
-              <Button key={item[0]} onClick={() => scrollToSection(item[1])} sx={{ color: '#fff' }}>
+              <Button
+                key={item[0]}
+                onClick={() => scrollToSection(item[1])}
+                sx={{
+                  color: activeSection === item[1] ? '#fff' : 'rgba(255, 255, 255, 0.5)',
+                  transition: 'color .15s ease-in-out',
+                  '&:hover': { color: '#fff', backgroundColor: 'transparent' },
+                }}
+              >
                 {item[0]}
               </Button>
             ))}

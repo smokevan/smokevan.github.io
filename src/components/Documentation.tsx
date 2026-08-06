@@ -2,6 +2,7 @@ import React from 'react';
 import C2S2 from './docs/C2S2';
 import TinyRiscV2 from './docs/TinyRiscV2';
 import QEC_Hardware from './docs/QEC_Hardware';
+import SRAM_array from './docs/SRAM_array';
 
 type Props = {
   projectId?: string;
@@ -14,6 +15,7 @@ const DOC_PAGES: Record<string, React.FC> = {
   c2s2: C2S2,
   trv2_processor: TinyRiscV2,
   qec_hardware: QEC_Hardware,
+  sram_array: SRAM_array
 };
 
 const DEFAULT_DOC = 'c2s2';
