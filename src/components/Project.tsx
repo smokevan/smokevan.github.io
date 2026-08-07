@@ -13,9 +13,9 @@ function Project() {
         <h1>Experiences:</h1>
         <div className="projects-grid">
             <div className="project">
-                <a href="#/docs/c2s2"><img src={teradyne} className="zoom" alt="thumbnail"/></a>
-                <a href="#/docs/c2s2"><h2>Teradyne</h2></a>
-                <a href="#/docs/c2s2"><h3>FPGA Intern</h3></a>
+                <a href="#/docs/Teradyne"><img src={teradyne} className="zoom" alt="thumbnail"/></a>
+                <a href="#/docs/Teradyne"><h2>Teradyne</h2></a>
+                <a href="#/docs/Teradyne"><h3>FPGA Intern</h3></a>
                 <p>Worked on design, verification, and lab validation of high-speed FPGA based hardware for data sequencing, processing, and capture in RF and DCVI automated testing systems.</p>
             </div>
             <div className="project">
